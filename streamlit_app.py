@@ -32,7 +32,7 @@ st.markdown("""
 
 # ================== SECTION: Session State Initialization ==================
 
-# 🧠 Streamlit Tip:
+# Streamlit Tip:
 # st.session_state is used to persist variables (not re-set) across code reruns triggered by user actions
 # st.cache_data is used to cache expensive computations or API calls and prevent redundant execution for same arguments of function.
 
