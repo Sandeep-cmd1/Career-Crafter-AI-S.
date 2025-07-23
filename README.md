@@ -1,49 +1,59 @@
 
 APP DESCRIPTION: 🚀 Career Crafter AI
 
-Career Crafter AI is a Streamlit-based application that uses powerful LLMs (Gemini, OpenAI) and web tools (Tavily, ChromaDB) to help job seekers identify skill gaps, generate personalized upskilling plans, and craft a tailored CV & LinkedIn post—all powered by AI.
+Career Crafter AI is a Streamlit-based application that uses powerful LLMs (Gemini, OpenAI) and web tools (Tavily, ChromaDB) to help job seekers identify skill gaps, generate personalized upskilling plans, generate study materials (notes, quiz, assigments, project ideas and interview FAQs) and craft a tailored CV & LinkedIn post—all powered by AI.
 
 
-🧠 What This App Does
+WHAT THIS APP DOES:
 
-    📄 Analyze your current CV 
+    - Analyze your current CV and extract your skills
 
-    🎯 Extract key skills from your target job description
+    - Extract key skills from your target job description [time taken:15-20 sec]
 
-    📈 Identify missing skills (skill gap analysis)
+    - Identify and generate missing skills (skill gap analysis) [time taken:10-15 sec]
 
-    📅 Build a personalized training plan
+    - Build a personalized training plan [time taken:15-20 sec]
 
-    📘 Generate lecture notes appended with latest info from the web
+    - Generate lecture notes appended with latest info from the web (adds citations & references) [time taken:20-25 sec]
 
-    ❓ Create quizzes, assignments, project ideas and interview FAQs
+    - Create quizzes (answers), assignments (solutions), project ideas and interview FAQs (answers) [time taken:10-15 sec]
 
-    📝 Generate a concise, ATS-friendly CV template on upskilled items
+    - Generate a concise, ATS-friendly CV template on upskilled items [time taken:10-15 sec for both CV & linkedin post]
 
-    🔗 Create a professional LinkedIn post to showcase your learning journey
+    - Create a professional LinkedIn post to showcase your learning journey 
 
 
-⚙️ How It Works
+HOW APP WORKS:
 
-    Input: Upload your CV and enter your target job title or description.
+    Input1: Enter your target job title or description
 
-    Skill Extraction: In background, the app extracts and embeds skills from both CV and job description.
+    Input2: Upload your CV 
 
-    Skill Gap Analysis: The app performs semantic similarity engine (ChromaDB + embeddings) and displays unmatched skills.
+    Skill Extraction: In background, the app extracts and embeds skills from both CV and job description
 
-    Training Plan: The app creates and displays a tailored upskilling roadmap with subtopics and timelines.
+    Skill Gap Analysis: In background, the app performs semantic similarity engine (langchain ChromaDB + embeddings) 
+    
+    Ouput1: Creates and displays skills you should learn to be a perfect fit for target job description
 
-    Topic Study: Choose a topic from training plan and app displays latest lecture notes. Further you can ask the app for quizzes, assignments, and FAQs on lecture notes, it delivers.
+    Output2: Creates and displays a tailored upskilling roadmap with subtopics and timelines
 
-    Final Output: Once upskilled, checkmark completed option and the app generates a new CV template and a professional LinkedIn post to showcase upskilled results.
+    Input3: Enter a topic from training plan
 
-📥 Sample Input
+    Output3: Creates and displays latest lecture notes with inputs from LLM and web search (adds citations & references)
+    
+    Input4: Ask the app for quiz, assignments and interview FAQs on lecture notes
+    
+    Output4: Creates and displays quiz (answers) or assignments (solutions)/ project ideas or interview FAQs (answers)
+
+    Final Output5: Once upskilled, checkmark completed option and the app generates a new CV template and a professional LinkedIn post to showcase upskilled results.
+
+SAMPLE INPUT:
 
     Target Job: Machine Learning Engineer with Cloud Experience
 
     CV Upload: A PDF resume listing Python, SQL, and basic ML skills
 
-📤 Sample Output
+SAMPLE OUTPUT:
 
     Additional Skills to Learn:
 
@@ -77,7 +87,8 @@ Career Crafter AI is a Streamlit-based application that uses powerful LLMs (Gemi
 
         2. Core Concepts: Crawling and Indexing....
 
-    Interview Questions Excerpt:
+    Interview Questions & Answers Excerpt:
+
         Here are 10 frequently asked oral interview questions related to Technical SEO, along with optimized answers:
 
         1. What is Technical SEO and why is it crucial for a successful SEO strategy?
@@ -97,7 +108,7 @@ Career Crafter AI is a Streamlit-based application that uses powerful LLMs (Gemi
         "Just wrapped up a 6-week upskilling journey into advanced ML and Cloud MLOps! 🚀 Highlights: ✅ GCP Deployment, ✅ Kubeflow Pipelines...
         #MachineLearning #CareerGrowth #MLOps #CloudEngineering #AI"
 
-🧰 Tech Stack
+TECH STACK:
 
     Frontend: Streamlit
 
@@ -105,20 +116,24 @@ Career Crafter AI is a Streamlit-based application that uses powerful LLMs (Gemi
 
     web Search: Tavily API
 
-    Embedding & Vector DB: OpenAI + ChromaDB
+    Embedding & Vector DB: Langchain-openai, Langchain-chromadb
 
     Parallel Execution: Python ThreadPoolExecutor
 
-🛠 Requirements
+REQUIREMENTS:
 
     Streamlit
 
     google-generativeai
 
-    openai
+    langchain
 
     PyMuPDF (fitz)
 
-    chromadb
+    langchain-openai
+
+    langchain-community
+
+    langchain-chroma
 
     tavily-python

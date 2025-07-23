@@ -1,6 +1,8 @@
 streamlit
 google-generativeai 
-openai
-chromadb 
-pymupdf 
+PyMuPDF
 tavily-python
+langchain
+langchain-openai
+langchain-community
+langchain-chroma
