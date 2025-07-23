@@ -3,6 +3,12 @@
 # ================== SECTION: IMPORTS ==================
 
 import streamlit as st
+import sys
+import sqlite3
+
+st.write("Python version:", sys.version)
+st.write("SQLite version:", sqlite3.sqlite_version)
+
 import google.generativeai as genai
 import fitz
 from concurrent.futures import ThreadPoolExecutor
