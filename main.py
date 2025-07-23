@@ -9,7 +9,6 @@ import chromadb
 from chromadb.config import Settings
 from concurrent.futures import ThreadPoolExecutor
 from tavily import TavilyClient
-import json
 
 # Initialize Gemini, OpenAI API clients
 gemini_api_key = input("Enter gemini api key: ")
@@ -232,19 +231,6 @@ notes:{lecture_notes}"""
     return askAI(prompt=faqs_prompt)
 
 
-def other_queries_agent(lecture_notes):
-    chat_history = [lecture_notes]
-    while True:
-        query = input("Please enter your message ('exit' ends chat): ")
-        if query.lower() == 'exit':
-            print("Goodbye!")
-            break
-        chat_history.append(f"USER: {query}")
-        response = askAI(prompt=chat_history)
-        print(response)
-        chat_history.append(f"AI: {response}")
-
-
 # ================== SECTION 10: Agent Selection ==================
 
 user_query = input("Enter a query about selected topic such as - quiz, assignment, interview questions, others: ")
@@ -259,7 +245,6 @@ Available Agents:
 - Quiz agent
 - Assignment, project ideas agent
 - FAQs of interview agent
-- Other queries agent
 
 Response **ONLY** with name of the appropriate agent
 
@@ -276,8 +261,6 @@ def handle_agents(agent, lecture_notes):
             print(assgn_pjideas_agent(lecture_notes))
         case "FAQs of interview agent":
             print(faqs_of_interview_agent(lecture_notes))
-        case "Other queries agent":
-            other_queries_agent(lecture_notes)
 
 agent = assigning_agent(user_query)
 handle_agents(agent, lecture_notes)
@@ -306,10 +289,10 @@ in training_plan give below.
 
 The tailored post should sound professional, insightful, educational and value-driven that focus on key takeaways in bullet points.
 
-📌 Target Audience: [Tech Professionals, Entrepreneurs, Leaders, Students]
+Target Audience: [Tech Professionals, Entrepreneurs, Leaders, Students]
 Add 5 relevant hashtags at the end.
 
-🔍  training_plan:{training_plan}"""
+training_plan:{training_plan}"""
     return askAI(prompt=linkedin_post_prompt)
 
 
